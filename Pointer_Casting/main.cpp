@@ -20,6 +20,8 @@ int main(int argc, char** argv) {
 	
 	strcat(buffer,CRLF);   //เอา string ต่อ string
 	//cout<<buffer<<endl;
-	HAL_UART_Transmit((int *)buffer);   //(int *) เป็นการ cast buffer ให้เป็น pointer ชนิด int ก่อนไม่งั้นมันจะ error ตามรูปที่ใส่ไป
+	cout<<&buffer<<endl;   //0x6ffe10 พบว่ามีค่าเท่ากัน
+	cout<<(int*)buffer<<endl;// 0x6ffe10 พบว่ามีค่าเท่ากัน จึงสรุปได้ว่า (int *)buffer ทำหน้าที่ส่ง address ของ buffer ไปตรงๆเลย
+	HAL_UART_Transmit((int *)buffer);   // (int *) เป็นการ cast buffer ให้เป็น pointer ชนิด int ก่อนไม่งั้นมันจะ error ตามรูปที่ใส่ไป
 	return 0;
 }
