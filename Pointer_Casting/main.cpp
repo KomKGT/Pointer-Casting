@@ -12,14 +12,14 @@ int main(int argc, char** argv) {
 	//HAL_UART_Transmit((int*)name);
 	int Count = 5;
 	char buffer[10];
-	char CRLF[3] = {0x0A,0x0D,0x0};
-	itoa(Count,buffer,10);
+	char CRLF[3] = {0x0A,0x0D,0x0}; //control feed
+	itoa(Count,buffer,10);  //แปลง int เป็น string
 	
 	//cout<<buffer<<endl;
 	//cout<<Count<<endl;
 	
-	strcat(buffer,CRLF);
+	strcat(buffer,CRLF);   //เอา string ต่อ string
 	//cout<<buffer<<endl;
-	HAL_UART_Transmit((int *)buffer); 
+	HAL_UART_Transmit((int *)buffer);   //(int *) เป็นการ cast buffer ให้เป็น pointer ชนิด int ก่อนไม่งั้นมันจะ error ตามรูปที่ใส่ไป
 	return 0;
 }
